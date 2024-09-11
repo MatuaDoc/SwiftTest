@@ -1,0 +1,79 @@
+{
+    "image": "ghcr.io/onslowcollege/swifttemplate:latest",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "sswg.swift-lang",
+                "vknabel.vscode-apple-swift-format",
+                "vadimcn.vscode-lldb",
+                "eamodio.gitlens",
+                "GitHub.vscode-pull-request-github",
+                "yzhang.markdown-all-in-one",
+                "hediet.vscode-drawio",
+                "oderwat.indent-rainbow",
+                "usernamehw.errorlens",
+                "aaron-bond.better-comments",
+                "vsls-contrib.gitdoc",
+                "seunlanlege.action-buttons"
+            ],
+            "settings": {
+                "apple-swift-format.path": [
+                    "/root/.mint/bin/swift-format"
+                ],
+                "gitlens.showWhatsNewAfterUpgrades": false,
+                "gitlens.showWelcomeOnInstall": false,
+                "editor.wordWrap": "on",
+                "editor.inlayHints.enabled": "off",
+                "editor.fontSize": 16,
+                "editor.rulers": [
+                    120
+                ],
+                "editor.tokenColorCustomizations": {
+                    "textMateRules": [
+                        {
+                            "scope": "comment",
+                            "settings": {
+                                "fontStyle": "italic"
+                            }
+                        }
+                    ]
+                },
+                "gitdoc.commitValidationLevel": "none",
+                "gitdoc.enabled": true,
+                "lldb.library": "/usr/lib/liblldb.so",
+                "lldb.launch.expressions": "native",
+                "workbench.colorTheme": "Default Light Modern",
+                "actionButtons": {
+                    "commands": [
+                        {
+                            "cwd": "${workspaceFolder}",
+                            "name": "$(run-all) Run project",
+                            "useVsCodeApi": true,
+                            "command": "workbench.action.debug.start"
+                        },
+                        {
+                            "cwd": "{workspaceFolder}",
+                            "name": "$(pencil) Format file",
+                            "useVsCodeApi": true,
+                            "command": "editor.action.formatDocument"
+                        },
+                        {
+                            "name": "$(terminal-view-icon) New Terminal",
+                            "useVsCodeApi": true,
+                            "command": "workbench.action.terminal.newInActiveWorkspace"
+                        },
+                        {
+                            "name": "$(terminal-kill) Kill all Terminals",
+                            "useVsCodeApi": true,
+                            "command": "workbench.action.terminal.killAll"
+                        }
+                    ],
+                    "defaultColor": "none",
+                    "reloadButton": "↻",
+                    "loadNpmCommands": false
+                }
+            }
+        }
+    },
+    "postCreateCommand": "python3 fixpaths.py && rm fixpaths.py && swift build"
+}
