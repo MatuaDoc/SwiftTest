@@ -47,7 +47,7 @@
                     "commands": [
                         {
                             "cwd": "${workspaceFolder}",
-                            "name": "$(run-all) Run project",
+                            "name": "$(run-all) Run",
                             "useVsCodeApi": true,
                             "command": "workbench.action.debug.start"
                         },
